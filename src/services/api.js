@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3001/v1",
+  baseURL: "https://api-gestao.startdevjs.com.br/v1",
 });
 
 api.interceptors.response.use(

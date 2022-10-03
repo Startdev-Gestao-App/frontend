@@ -50,7 +50,9 @@ const CardDay = ({ name, day, avatar, status, content, onClick }) => {
       <Name>{name}</Name>
       <Day>Dia: {day}</Day>
       <Right>
-        {avatar && <Avatar src={`http://localhost:3001${avatar}`} />}
+        {avatar && (
+          <Avatar src={`https://api-gestao.startdevjs.com.br${avatar}`} />
+        )}
       </Right>
       <Status color={returnColorStatus(status)}>{returnStatus(status)}</Status>
       <Content color={renderColorContent(content)}>{`Tipo: ${returnContent(

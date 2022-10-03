@@ -83,7 +83,7 @@ const InfoDay = ({ id }) => {
 
   const donwloadFile = async (file, name) => {
     axios({
-      url: `http://localhost:3001${file}`,
+      url: `https://api-gestao.startdevjs.com.br${file}`,
       method: "GET",
       responseType: "blob",
     }).then((response) => {
