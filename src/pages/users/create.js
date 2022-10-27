@@ -79,7 +79,7 @@ const Create = () => {
   };
 
   useMemo(() => {
-    if (location.state.id) {
+    if (location?.state?.id) {
       getUserById(location.state.id, setLoading, setError, setValue);
     }
     // eslint-disable-next-line

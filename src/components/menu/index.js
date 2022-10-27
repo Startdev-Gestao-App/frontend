@@ -32,6 +32,10 @@ const MenuComponent = ({ children }) => {
           <IconMenu className="bi bi-calendar-date"></IconMenu>
           <Text>Programação</Text>
         </Option>
+        <Option onClick={() => navigate("/videos")}>
+          <IconMenu className="bi bi-camera-reels"></IconMenu>
+          <Text>Vídeos</Text>
+        </Option>
         <Option onClick={() => navigate("/users")}>
           <IconMenu className="bi bi-person"></IconMenu>
           <Text>Usuários</Text>

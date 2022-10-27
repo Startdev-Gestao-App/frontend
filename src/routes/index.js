@@ -7,6 +7,7 @@ import Users from "../pages/users";
 import DataUser from "../pages/users/create";
 import Schedule from "../pages/schedule";
 import Days from "../pages/days";
+import Videos from "../pages/videos";
 
 const RoutesComponent = () => {
   return (
@@ -17,6 +18,7 @@ const RoutesComponent = () => {
       <Route path="/users/data" element={<Private Component={DataUser} />} />
       <Route path="/schedule" element={<Private Component={Schedule} />} />
       <Route path="/days" element={<Private Component={Days} />} />
+      <Route path="/videos" element={<Private Component={Videos} />} />
     </Routes>
   );
 };

@@ -58,7 +58,7 @@ const Days = () => {
             </div>
           </div>
         )}
-        {view && <InfoDay id={id} />}
+        {view && <InfoDay id={id} setView={setView} />}
       </Menu>
       {error && (
         <Alert
