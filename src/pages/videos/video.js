@@ -17,7 +17,7 @@ const Video = ({ id, setView }) => {
   const [idVideo, setIdVideo] = useState(false);
   const [remove, setRemove] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [upload, setUpload] = useState(true);
+  const [upload, setUpload] = useState(false);
 
   useMemo(() => {
     if (id) getVideos(setLoading, setData, setError, skip, take, id);
