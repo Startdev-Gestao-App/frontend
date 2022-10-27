@@ -67,10 +67,6 @@ const Video = ({ id, setView }) => {
     });
   };
 
-  useMemo(() => {
-    console.log(data);
-  }, [data]);
-
   return (
     <>
       <div className="container">

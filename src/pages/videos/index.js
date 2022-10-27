@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { getVideos } from "./functions/getCategory";
-import { Menu, Title, Button, Loading, Alert } from "../../components";
+import { Menu, Title, Loading, Alert } from "../../components";
 import { CardCategory } from "./styles";
 import Video from "./video";
 
