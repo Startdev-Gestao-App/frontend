@@ -1,16 +1,6 @@
 import { Body, Name, Day, Right, Avatar, Status, Content } from "./styles";
 
 const CardDay = ({ name, day, avatar, status, content, onClick }) => {
-  const renderColor = (day) => {
-    if (day === "Segunda-Feira") return "#000000";
-    if (day === "Terça-Feira") return "#6A5ACD";
-    if (day === "Quarta-Feira") return "#00FFFF";
-    if (day === "Quinta-Feira") return "#2F4F4F";
-    if (day === "Sexta-Feira") return "#BDB76B";
-    if (day === "Sábado") return "#FF00FF";
-    if (day === "Domingo") return "#FFD700";
-  };
-
   const returnStatus = (status) => {
     if (status === 1) return "Em branco";
     if (status === 2) return "Prod Texto";
@@ -46,7 +36,7 @@ const CardDay = ({ name, day, avatar, status, content, onClick }) => {
   };
 
   return (
-    <Body color={renderColor(name)} onClick={onClick}>
+    <Body color="#dcdcdc" onClick={onClick}>
       <Name>{name}</Name>
       <Day>Dia: {day}</Day>
       <Right>
