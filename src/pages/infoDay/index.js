@@ -5,7 +5,6 @@ import { Title } from "./styles";
 import { getUsers } from "./functions/getUsers";
 import { deleteAttachment } from "./functions/deleteAttachment";
 import api from "../../services/api";
-import axios from "axios";
 import { deleteVideo } from "./functions/deleteVideo";
 
 const InfoDay = ({ id, setView }) => {
@@ -103,20 +102,11 @@ const InfoDay = ({ id, setView }) => {
     }
   };
 
-  const donwloadFile = async (file, name) => {
-    axios({
-      url: `https://api-gestao.startdevjs.com.br${file}`,
-      method: "GET",
-      responseType: "blob",
-    }).then((response) => {
-      const href = URL.createObjectURL(response.data);
-      const link = document.createElement("a");
-      link.href = href;
-      link.setAttribute("download", name);
-      document.body.appendChild(link);
-      link.click();
-      URL.revokeObjectURL(file);
-    });
+  const donwloadFile = async (file) => {
+    window.open(
+      `https://api-gestao.startdevjs.com.br${file}`,
+      "_blank" // <- This is what makes it open in a new window.
+    );
   };
 
   const saveDay = async () => {
@@ -219,9 +209,7 @@ const InfoDay = ({ id, setView }) => {
                           >
                             <p
                               className="link-primary"
-                              onClick={() =>
-                                donwloadFile(data.link, data.nameFile)
-                              }
+                              onClick={() => donwloadFile(data.link)}
                             >
                               {data.name}
                             </p>
