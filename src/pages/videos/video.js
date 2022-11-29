@@ -52,19 +52,10 @@ const Video = ({ id, setView }) => {
   };
 
   const donwloadFile = async (file, name) => {
-    axios({
-      url: `https://api-gestao.startdevjs.com.br${file}`,
-      method: "GET",
-      responseType: "blob",
-    }).then((response) => {
-      const href = URL.createObjectURL(response.data);
-      const link = document.createElement("a");
-      link.href = href;
-      link.setAttribute("download", name);
-      document.body.appendChild(link);
-      link.click();
-      URL.revokeObjectURL(file);
-    });
+    window.open(
+      `https://api-gestao.startdevjs.com.br${file}`,
+      "_blank" // <- This is what makes it open in a new window.
+    );
   };
 
   return (
