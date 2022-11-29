@@ -53,7 +53,7 @@ const Video = ({ id, setView }) => {
 
   const donwloadFile = async (file, name) => {
     axios({
-      url: `http://api-gestao.startdevjs.com.br${file}`,
+      url: `https://api-gestao.startdevjs.com.br${file}`,
       method: "GET",
       responseType: "blob",
     }).then((response) => {
