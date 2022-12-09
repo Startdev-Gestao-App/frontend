@@ -31,12 +31,13 @@ const PaginationComponent = ({
         {pagination?.length
           ? pagination.map((data, i) => (
               <li
-                className="page-item"
+                className={`page-item ${data === page ? "active" : ""}`}
                 key={i}
+                aria-current="page"
                 onClick={() => pagePagination(data)}
               >
                 {/* eslint-disable-next-line */}
-                <a className="page-link" href="#">
+                <a className={`page-link`} href="#">
                   {data}
                 </a>
               </li>

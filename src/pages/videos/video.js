@@ -1,10 +1,9 @@
 import { Button, Alert, Loading, Pagination } from "../../components";
 import { getVideos } from "./functions/getVideos";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Flex, SessionBtns, SessionPaginator } from "./styles";
 import ModalDelete from "./components/modelDelete";
 import { removeVideo } from "./functions/removeVideo";
-import axios from "axios";
 import ModalUpload from "./components/modalUpload";
 
 const Video = ({ id, setView }) => {
@@ -13,16 +12,16 @@ const Video = ({ id, setView }) => {
   const [error, setError] = useState(false);
   const [skip, setSkip] = useState(0);
   const [take, setTake] = useState(20);
-  const [, setPage] = useState(1);
+  const [page, setPage] = useState(1);
   const [idVideo, setIdVideo] = useState(false);
   const [remove, setRemove] = useState(false);
   const [success, setSuccess] = useState(false);
   const [upload, setUpload] = useState(false);
 
-  useMemo(() => {
+  useEffect(() => {
     if (id) getVideos(setLoading, setData, setError, skip, take, id);
     // eslint-disable-next-line
-  }, [id]);
+  }, [id, skip, take]);
 
   const refresh = () => {
     if (id) getVideos(setLoading, setData, setError, skip, take, id);
@@ -125,16 +124,17 @@ const Video = ({ id, setView }) => {
                   : false}
               </tbody>
             </table>
-            <SessionPaginator>
-              <Pagination
-                totalPage={data?.totalPage}
-                setPage={setPage}
-                setSkip={setSkip}
-                setTake={setTake}
-              />
-            </SessionPaginator>
           </>
         )}
+        <SessionPaginator>
+          <Pagination
+            totalPage={data?.totalPage}
+            setPage={setPage}
+            setSkip={setSkip}
+            setTake={setTake}
+            page={page}
+          />
+        </SessionPaginator>
       </div>
       {error && (
         <Alert
